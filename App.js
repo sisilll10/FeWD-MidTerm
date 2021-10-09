@@ -1,3 +1,4 @@
+//Tombol Show and Hide 
 document.getElementById('btnshw').addEventListener("click", function () {
     if (btnshw.innerHTML == "Show Form Add new Student") {
         btnshw.innerHTML = "Hide Form Add new Student";
@@ -5,7 +6,9 @@ document.getElementById('btnshw').addEventListener("click", function () {
         btnshw.innerHTML = "Show Form Add new Student";
     }
 });
+// end tombol show hide
 
+//Submit button 
 const submit_button = document.querySelector("#submitbutton");
 
 submit_button.addEventListener('click', () => {
@@ -17,7 +20,7 @@ submit_button.addEventListener('click', () => {
     } else {
         std_gender = 'Female';
     }
-    // let std_gender = document.querySelector('input[name="gender"]:checked').value;
+
     let std_faculty = document.querySelector("#Faculty").options[document.querySelector("#Faculty").selectedIndex].value;
     let std_program_study = document.querySelector("#Prodi").options[document.querySelector("#Prodi").selectedIndex].value;;
 
@@ -106,7 +109,7 @@ function delete_row(btn) {
     }
     update_student_list();
 }
-
+// Search by name
 let search_student = document.querySelector("#nameSearch");
 
 search_student.addEventListener("input", () => {
