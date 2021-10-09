@@ -9,56 +9,56 @@ document.getElementById('btnshw').addEventListener("click", function () {
 const submit_button = document.querySelector("#submitbutton");
 
 submit_button.addEventListener('click', () => {
-    let student_nim = document.querySelector("#NIM").value;
-    let student_name = document.querySelector("#Nama").value;
-    let student_gender = document.querySelector('input#Male').checked;
-    if (student_gender == true) {
-        student_gender = 'Male';
+    let std_nim = document.querySelector("#NIM").value;
+    let std_name = document.querySelector("#Nama").value;
+    let std_gender = document.querySelector('input#Male').checked;
+    if (std_gender == true) {
+        std_gender = 'Male';
     } else {
-        student_gender = 'Female';
+        std_gender = 'Female';
     }
-    // let student_gender = document.querySelector('input[name="gender"]:checked').value;
-    let student_faculty = document.querySelector("#Faculty").options[document.querySelector("#Faculty").selectedIndex].value;
-    let student_program_study = document.querySelector("#Prodi").options[document.querySelector("#Prodi").selectedIndex].value;;
+    // let std_gender = document.querySelector('input[name="gender"]:checked').value;
+    let std_faculty = document.querySelector("#Faculty").options[document.querySelector("#Faculty").selectedIndex].value;
+    let std_program_study = document.querySelector("#Prodi").options[document.querySelector("#Prodi").selectedIndex].value;;
 
 
     //validating form data
-    if (/^\d+$/.test(student_nim) != true) {
+    if (/^\d+$/.test(std_nim) != true) {
         alert("Invalid Student NIM");
         return;
     }
 
-    if (/^[a-zA-Z]+(?: [a-zA-Z]+)*$/.test(student_name) != true) {
+    if (/^[a-zA-Z]+(?: [a-zA-Z]+)*$/.test(std_name) != true) {
         alert("Invalid Student Name");
         return;
     }
 
-    if (student_faculty == "") {
+    if (std_faculty == "") {
         alert("Invalid Faculty");
         return;
     }
 
-    if (student_program_study == "") {
+    if (std_program_study == "") {
         alert("Invalid Program Study");
         return;
     }
 
-    if (dataStudent.map((s) => s.NIM).includes(student_nim) == true) {
+    if (dataStudent.map((s) => s.NIM).includes(std_nim) == true) {
         alert(`Duplicate NIM Detected!`);
         return;
     }
 
     //append valid form data to student list
     dataStudent.push({
-        NIM: student_nim,
-        nama: student_name,
-        gender: student_gender,
-        fakultas: student_faculty,
-        study: student_program_study,
+        NIM: std_nim,
+        nama: std_name,
+        gender: std_gender,
+        fakultas: std_faculty,
+        study: std_program_study,
     });
 
     //update student list and reset form data
-    alert(`${student_name} added.`);
+    alert(`${std_name} added.`);
     update_student_list();
     document.querySelector("form").reset();
 
