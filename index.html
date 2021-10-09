@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+
+  <title>Student Management MiniApp</title>
+</head>
+
+<body class="d-flex flex-column h-100">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+      <div class="container-fluid">
+        <a href="index.html" class="logo" style="text-decoration: none; color: white">Student Management App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSuppCont"
+          aria-controls="navSuppCont" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navSuppCont">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container" style="font-family: Arial, Helvetica, sans-serif">
+    <br /><br /><br />
+    <h1 style="color: grey">Student Management</h1>
+    <h1>App</h1>
+    <br /><br />
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!--Kolom Add Student form-->
+      <div class="col-md-6">
+        <h3>Add Student</h3>
+        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#demo"
+          aria-expanded="false" aria-controls="demo" id="btnshw">Show Form Add new Student</button>
+        <div id="demo" class="collapse">
+
+          <form class="needs-validation" id="add-student-form"> <br>
+            <div class="form-group">
+
+              <div class="col-mb-3">
+                <label for="NIM" class="form-label">Student Id (NIM)</label>
+                <input type="text" required class="form-control" id="NIM" aria-describedby="NIM" />
+
+              </div>
+
+              <div class="mb-3">
+                <label for="Nama">Full Name</label>
+                <input type="text" required class="form-control" id="Nama" placeholder="Jhone Doe">
+              </div>
+              <label for="gender">Gender</label>
+              <div class="mb-3">
+                <input type="radio" required class="form-check-gender" name="gender" id="Male">
+                <label for="Male" class="form-check-gender">Male</label>
+                <input type="radio" required class="form-check-gender" name="gender" id="Female">
+                <label for="Female" class="form-check-gender">Female</label>
+              </div>
+
+              <label for="faculty">Faculty</label>
+              <div class="Faculty mb-3 input-group">
+                <select class="form-select" aria-label="faculty" id="Faculty" required>
+                  <option selected value="">-- Select Faculty --</option>
+                </select>
+              </div>
+
+              <label for=" prodi">Program Study</label>
+              <div class="prodi mb-3 input-group">
+                <select class="form-select" aria-label="Prodi" id="Prodi" required>
+                  <option selected value="">--Select Program Study--</option>
+                </select>
+                <div class="invalid-feedback">Example invalid form file feedback</div>
+
+              </div>
+
+            </div>
+            <br>
+            <button type="submit" class="btn btn-secondary" value="Add-Student" id="submitbutton">Add
+              Student</button>
+
+          </form>
+        </div>
+
+      </div>
+      <div class="filter col-md-6">
+        <h3>Filter Student By</h3>
+        <label for="filter2" style="font-style: italic;">Faculty</label> <br />
+        <div class="byprodi mb-3">
+          <select class="form-control" id="filtfaculty" required>
+            <option selected>-- Select Faculty --</option>
+            <option value="Fakultas Ekonomi dan Bisnis">Fakultas Ekonomi dan Bisnis</option>
+            <option value="Akademi Sekretaris Manajemen Indonesia Klabat">Akademi Sekretaris Manajemen Indonesia Klabat
+            </option>
+            <option value="Fakultas Filsafat">Fakultas Filsafat</option>
+            <option value="Fakultas Ilmu Komputer">Fakultas Ilmu Komputer</option>
+            <option value="Fakultas Keguruan dan Ilmu Pendidikan">Fakultas Keguruan dan Ilmu Pendidikan</option>
+            <option value="Fakultas Keperawatan">Fakultas Keperawatan</option>
+            <option value="Fakultas Pertanian">Fakultas Pertanian</option>
+            <option value="Pascasarjana">Pascasarjana</option>
+          </select>
+          <button type="button" class="filterbtn btn btn-secondary" id="facbutton" onclick="FilterFaculty()">Show
+            Students</button>
+
+        </div>
+        <label for="filter2" style="font-style: italic;">Program Studi</label> <br />
+        <div class="byprodi mb-3">
+          <select class="form-control" id="filtprodi" required>
+            <option selected>-- SELECT PROGRAM OF STUDY --</option>
+            <option class="pascasarjana" value="Magister Manajemen">Magister Manajemen</option>
+            <option class="pascasarjana" value="Magister Teologi">Magister Teologi</option>
+            <option class="Filsafat" value="Ilmu Filsafat">Ilmu Filsafat</option>
+            <option class="FKIP" value="Pendidikan Agama">Pendidikan Agama</option>
+            <option class="FKIP" value="Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+            <option class="FKIP" value="Pendidikan Ekonomi">Pendidikan Ekonomi</option>
+            <option class="FKIP" value="Pendidikan Luar Sekolah">Pendidikan Luar Sekolah</option>
+            <option class="FEB" value="Akuntansi">Akuntansi</option>
+            <option class="FEB" value="Manajemen">Manajemen</option>
+            <option class="Pertanian" value="Agroteknologi">Agroteknologi</option>
+            <option class="FIK" value="Informatika">Informatika</option>
+            <option class="FIK" value="Sistem Informasi">Sistem Informasi</option>
+            <option class="Keperawatan" value="Ners">Profesi Ners</option>
+            <option class="Keperawatan" value="Keperawatan">Keperawatan</option>
+            <option class="ASMI" value="Sekretari (D3)">Sekretari (D3)</option>
+          </select>
+          <button type="button" onclick="FilterStudy()" class="filterbtn btn btn-secondary">Show Students</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <hr>
+    <h1 class="text-center fs-1 text-">Our Students</h1>
+    <input type="text" class="form-control" id="nameSearch" placeholder="Search student by name..."><br>
+
+    <table class="table table-hover" id="tabbio">
+      <thead>
+        <tr id="data">
+          <th>NIM</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Faculty</th>
+          <th>Program Study</th>
+          <th>Action</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="students">
+
+      </tbody>
+    </table>
+  </div>
+  <hr>
+
+  <footer class="footer mt-auto  py-3  bg-secondary">
+    <div class="container">
+      <p class="text-center text-white">&copy; 2021 by Rumengan,Prisilia</p>
+    </div>
+  </footer>
+
+
+
+
+
+  <script src="combobox.js"></script>
+  <script src="DSArr.js"></script>
+  <script src="App.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html>
