@@ -131,7 +131,7 @@ search_student.addEventListener("input", () => {
 
                 let td = document.createElement("td");
                 td.appendChild(document.createTextNode(student[key]));
-
+                td.className = [key];
                 tr.appendChild(td);
             }
 
@@ -146,6 +146,7 @@ search_student.addEventListener("input", () => {
 
     }
 });
+
 
 //Filter Faculty
 function FilterFaculty() {
